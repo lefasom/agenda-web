@@ -1,13 +1,28 @@
-.container{
+.hidden {
+    height: 80vh;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+  margin: auto;
+    border: 1px solid #f5f5f5;
+}
+
+.container {
+    margin: auto;
     display: flex;
     width: 90%;
+
 }
-.container aside{
+
+.container aside {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.container #action{
+
+.container #action {
     position: relative;
     background-color: #f5f5f5;
     margin: 5px 2px;
@@ -19,14 +34,17 @@
     align-items: center;
 
 }
-.container #action span{
+
+.container #action span {
     color: #555;
     font-size: 16px;
 }
-.container #action:hover{
+
+.container #action:hover {
     box-shadow: 1px 1px 5px 1px #e6e5e5;
 
 }
+
 .container-list {
     display: flex;
     flex-direction: column;

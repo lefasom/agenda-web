@@ -228,7 +228,7 @@ function List() {
         })));
     }, [])
     const Persiana = ({ elements }) => {
-        return (<>
+        return (<div className='hidden'>
 
             {elements.map((val, index) => {
                 return (<div className='container'>
@@ -258,7 +258,7 @@ function List() {
             })}
 
 
-        </>)
+        </div>)
     }
     return (
         <div className='container-list'>
