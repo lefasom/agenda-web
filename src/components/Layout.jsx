@@ -1,21 +1,32 @@
 import React, { useState } from 'react';
 import './layout.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { currentCategory } from '../../redux/categorySlice';
 
 function Layout() {
+  const dispatch = useDispatch()
+  let category = useSelector((state) => state.category)
+
   const items = [
     'Todo',
-    'Animaciones',
-    'Componentes',
     'Framework',
-    'Diseño',
+    'Componentes',
+    'Diseño web',
     'Porfolios',
+    'Fuentes',
+    'Iconos',
+    'Patrones de diseño',
+    'Hosting',
   ];
-  const [category, setCategory] = useState('Framework');
+
 
   let itemsToShow = 3;
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(itemsToShow);
 
+  const filterCategory = (item) => {
+    dispatch(currentCategory(item))
+  }
 
   const next = () => {
 
@@ -42,20 +53,20 @@ function Layout() {
   return (
     <nav className="slider">
       <button onClick={prev}>
-        <span class="material-symbols-outlined">
+        <span className="material-symbols-outlined">
           chevron_left
         </span>
       </button>
       <ul className="slider-list">
         {items.slice(startIndex, endIndex).map((item, index) => {
 
-          if (category == item) {
+          if (category.category == item) {
             return (
-              <li style={{ background: "#bbb", color: "#fff" }} key={index}>{item}</li>
+              <li onClick={() => { filterCategory(item) }} style={{ background: "#bbb", color: "#fff" }} key={index}>{item}</li>
             )
           } else {
             return (
-              <li key={index}>{item}</li>
+              <li onClick={() => { filterCategory(item) }} key={index}>{item}</li>
             )
           }
         }
@@ -63,7 +74,7 @@ function Layout() {
         )}
       </ul>
       <button onClick={next}>
-        <span class="material-symbols-outlined">
+        <span className="material-symbols-outlined">
           chevron_right
         </span>
       </button>
