@@ -10,7 +10,7 @@
 }
 
 .container {
-    margin: auto;
+    margin: 0 auto;
     display: flex;
     width: 90%;
 
