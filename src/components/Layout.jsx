@@ -11,12 +11,13 @@ function Layout() {
     'Todo',
     'Framework',
     'Componentes',
-    'Diseño web',
     'Porfolios',
     'Fuentes',
     'Iconos',
     'Diseño',
     'Hosting',
+    'Recursos',
+
   ];
 
 
