@@ -5,7 +5,7 @@
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
-  margin: auto;
+    margin: auto;
     border: 1px solid #f5f5f5;
 }
 
@@ -19,7 +19,8 @@
 .container aside {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
+
 }
 
 .container #action {

@@ -15,7 +15,7 @@ function Layout() {
     'Porfolios',
     'Fuentes',
     'Iconos',
-    'Patrones de diseño',
+    'Diseño',
     'Hosting',
   ];
 

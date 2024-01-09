@@ -19,12 +19,13 @@ function Form() {
                         <select name="" id="">
                             <option value="">Framework</option>
                             <option value="">Componentes</option>
-                            <option value="">Diseños web</option>
                             <option value="">Porfolios</option>
                             <option value="">Fuentes</option>
                             <option value="">Iconos</option>
-                            <option value="">Patrones de diseño</option>
+                            <option value="">Diseño</option>
                             <option value="">Hosting</option>
+                            <option value="">Recursos</option>
+
                         </select>
                         <div style={{display:"flex"}}>
                             <button id='btn'>Guardar</button>
