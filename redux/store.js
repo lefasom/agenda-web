@@ -1,10 +1,8 @@
-import { configureStore } from "@reduxjs/toolkit";
-import imagesSlice from "./imagesSlice";
-import categorySlice from "./categorySlice";
+import { configureStore } from "@reduxjs/toolkit"
+import categorySlice from "./categorySlice"
 
 const store = configureStore({
   reducer: {
-    images: imagesSlice,
     category: categorySlice,
   },
   middleware: (getDefaultMiddleware) =>

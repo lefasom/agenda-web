@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import './layout.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { currentCategory } from '../../redux/categorySlice';
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { currentCategory } from '../../redux/categorySlice'
+import './layout.css'
 
 function Layout() {
   const dispatch = useDispatch()
@@ -17,13 +17,11 @@ function Layout() {
     'Diseño',
     'Hosting',
     'Recursos',
+  ]
 
-  ];
-
-
-  let itemsToShow = 3;
-  const [startIndex, setStartIndex] = useState(0);
-  const [endIndex, setEndIndex] = useState(itemsToShow);
+  let itemsToShow = 3
+  const [startIndex, setStartIndex] = useState(0)
+  const [endIndex, setEndIndex] = useState(itemsToShow)
 
   const filterCategory = (item) => {
     dispatch(currentCategory(item))
@@ -32,22 +30,22 @@ function Layout() {
   const next = () => {
 
     if (endIndex < items.length) {
-      setStartIndex((startIndex + itemsToShow));
-      setEndIndex((endIndex + itemsToShow));
+      setStartIndex((startIndex + itemsToShow))
+      setEndIndex((endIndex + itemsToShow))
     } else {
-      setStartIndex((0));
-      setEndIndex((itemsToShow));
+      setStartIndex((0))
+      setEndIndex((itemsToShow))
     }
 
   };
 
   const prev = () => {
     if (startIndex <= 0) {
-      setStartIndex((items.length - itemsToShow));
-      setEndIndex((items.length));
+      setStartIndex((items.length - itemsToShow))
+      setEndIndex((items.length))
     } else {
-      setStartIndex((startIndex - itemsToShow));
-      setEndIndex((endIndex - itemsToShow));
+      setStartIndex((startIndex - itemsToShow))
+      setEndIndex((endIndex - itemsToShow))
     }
   };
 
