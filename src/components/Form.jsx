@@ -45,15 +45,15 @@ function Form() {
                         <label htmlFor="">Url</label>
                         <input value={url} placeholder="https://elsitioweb.com/" onChange={(e)=>setUrl(e.target.value)}  type="text" />
                         <label htmlFor="">Categoria</label>
-                        <select value={category} onChange={(e)=>setCategory(e.target.value)} name="" id="">
-                            <option value="">Framework</option>
-                            <option value="">Componentes</option>
-                            <option value="">Porfolios</option>
-                            <option value="">Fuentes</option>
-                            <option value="">Iconos</option>
-                            <option value="">Diseño</option>
-                            <option value="">Hosting</option>
-                            <option value="">Recursos</option>
+                        <select onChange={(e)=>setCategory(e.target.value)} name="" id="">
+                            <option value="Framework">Framework</option>
+                            <option value="Componentes">Componentes</option>
+                            <option value="Porfolios">Porfolios</option>
+                            <option value="Fuentes">Fuentes</option>
+                            <option value="Iconos">Iconos</option>
+                            <option value="Diseño">Diseño</option>
+                            <option value="Hosting">Hosting</option>
+                            <option value="Recursos">Recursos</option>
 
                         </select>
                         <div style={{ display: "flex" }}>
