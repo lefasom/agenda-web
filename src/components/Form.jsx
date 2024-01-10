@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './form.css'
+import { addDato } from '../../redux/datoAction'
 function Form() {
     const [state, setState] = useState(false)
     const [title, setTitle] = useState("")
@@ -10,6 +11,16 @@ function Form() {
     const saltoDeLinea = () =>{
             setDescription(description+" \n")
     }
+
+    
+  const handleSubmit = () => {
+    dispatch(addDato({ title, description, url, category }))
+    setDescription('')
+    setCategory('Framework')
+    setUrl('')
+    setTitle('')
+  }
+
     return (<div>
         <button id='btn3' onClick={() => setState(true)}>Agregar</button>
 
@@ -18,7 +29,7 @@ function Form() {
                 <div className='container-form_input'>
                     <div className='form'>
                         <label htmlFor="">Titulo</label>
-                        <input type="text" />
+                        <input onChange={(e)=>setTitle(e.target.value)} type="text" />
                         <label htmlFor="">descripción</label>
                         <div style={{ display: "flex",justifyContent:"center" }}>
                             <textarea onChange={(e)=>setDescription(e.target.value)} value={description} type="text" style={{ width: "70%",height:"200px",border: "1px solid #aaaa", borderRadius: "10px", resize:"none" }} />
@@ -29,9 +40,9 @@ function Form() {
                             </button>
                         </div>
                         <label htmlFor="">Url</label>
-                        <input type="text" />
+                        <input onChange={(e)=>setUrl(e.target.value)}  type="text" />
                         <label htmlFor="">Categoria</label>
-                        <select name="" id="">
+                        <select onChange={(e)=>setCategory(e.target.value)} name="" id="">
                             <option value="">Framework</option>
                             <option value="">Componentes</option>
                             <option value="">Porfolios</option>
@@ -43,7 +54,7 @@ function Form() {
 
                         </select>
                         <div style={{ display: "flex" }}>
-                            <button id='btn'>Guardar</button>
+                            <button onClick={handleSubmit} id='btn'>Guardar</button>
                             <button id='btn2' onClick={() => setState(false)}>Cancelar</button>
                         </div>
                     </div>

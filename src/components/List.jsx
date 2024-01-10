@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-
 import './list.css'
-import { currentCategory } from '../../redux/categorySlice';
+import { getDatos } from '../../redux/datoAction'
+
+
 function List() {
     const dispatch = useDispatch()
+    let datos = useSelector((state) => state.dato.datos)
+    
     const array = [
         {
             id: 1,
@@ -20,7 +23,7 @@ function List() {
 
     useEffect(() => {
 
-        setElements(array.map(item => ({
+        setElements(datos.map(item => ({
             ...item,
             description: item.description.split('\n').map((line, index) => (
                 <React.Fragment key={index}>
@@ -31,11 +34,15 @@ function List() {
         })))
         
     }, [])
+    useEffect(()=>{
+        dispatch(getDatos())
+        console.log(datos)
+    },[])
     const Persiana = ({ elements }) => {
         return (
             <div className='hidden'>
                 {elements.map((val, index) => {
-                    if (category.category == val.category) {
+                    if (category.category.toLowerCase() == val.category.toLowerCase()) {
                         return (<div className='container' key={index}>
                             <section className='container-persiana'>
                                 <div name="id" id='p'>
