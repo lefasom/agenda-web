@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import './form.css'
 import { addDato } from '../../redux/datoAction'
+import { useDispatch } from 'react-redux'
 function Form() {
+    const dispatch = useDispatch()
     const [state, setState] = useState(false)
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
     const [url, setUrl] = useState("")
-    const [category, setCategory] = useState("")
+    const [category, setCategory] = useState("Framework")
 
     const saltoDeLinea = () =>{
             setDescription(description+" \n")
@@ -19,6 +21,7 @@ function Form() {
     setCategory('Framework')
     setUrl('')
     setTitle('')
+
   }
 
     return (<div>
@@ -29,7 +32,7 @@ function Form() {
                 <div className='container-form_input'>
                     <div className='form'>
                         <label htmlFor="">Titulo</label>
-                        <input onChange={(e)=>setTitle(e.target.value)} type="text" />
+                        <input value={title} onChange={(e)=>setTitle(e.target.value)} type="text" />
                         <label htmlFor="">descripción</label>
                         <div style={{ display: "flex",justifyContent:"center" }}>
                             <textarea onChange={(e)=>setDescription(e.target.value)} value={description} type="text" style={{ width: "70%",height:"200px",border: "1px solid #aaaa", borderRadius: "10px", resize:"none" }} />
@@ -40,9 +43,9 @@ function Form() {
                             </button>
                         </div>
                         <label htmlFor="">Url</label>
-                        <input onChange={(e)=>setUrl(e.target.value)}  type="text" />
+                        <input value={url} placeholder="https://elsitioweb.com/" onChange={(e)=>setUrl(e.target.value)}  type="text" />
                         <label htmlFor="">Categoria</label>
-                        <select onChange={(e)=>setCategory(e.target.value)} name="" id="">
+                        <select value={category} onChange={(e)=>setCategory(e.target.value)} name="" id="">
                             <option value="">Framework</option>
                             <option value="">Componentes</option>
                             <option value="">Porfolios</option>
@@ -54,7 +57,7 @@ function Form() {
 
                         </select>
                         <div style={{ display: "flex" }}>
-                            <button onClick={handleSubmit} id='btn'>Guardar</button>
+                            <button onClick={()=>handleSubmit()} id='btn'>Guardar</button>
                             <button id='btn2' onClick={() => setState(false)}>Cancelar</button>
                         </div>
                     </div>

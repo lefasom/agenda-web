@@ -1,26 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import './list.css'
-import { getDatos } from '../../redux/datoAction'
+import { deletedato, getDatos } from '../../redux/datoAction'
 
 
 function List() {
     const dispatch = useDispatch()
     let datos = useSelector((state) => state.dato.datos)
-    
-    const array = [
-        {
-            id: 1,
-            title: "Vue.js",
-            src: "https://vuejs.org/",
-            description: "Framework JavaScript progresivo para construir interfaces de usuario. Ofrece una estructura sencilla para la creación de aplicaciones web interactivas.",
-            category: "Framework"
-        }
-    ];
+
 
     const [elements, setElements] = useState([])
     let category = useSelector((state) => state.category)
 
+    const onDeleteLink = (id) => {
+        dispatch(deletedato({ id }))
+    }
+
+
+    useEffect(() => {
+        dispatch(getDatos())
+    }, [])
     useEffect(() => {
 
         setElements(datos.map(item => ({
@@ -32,12 +31,9 @@ function List() {
                 </React.Fragment>
             ))
         })))
-        
-    }, [])
-    useEffect(()=>{
-        dispatch(getDatos())
-        console.log(datos)
-    },[])
+
+    }, [datos])
+
     const Persiana = ({ elements }) => {
         return (
             <div className='hidden'>
@@ -47,7 +43,7 @@ function List() {
                             <section className='container-persiana'>
                                 <div name="id" id='p'>
                                     <div style={{ display: "flex" }}>
-                                        <a href={val.src}>{val.title}</a>
+                                        <a style={{ cursor: "pointer" }} href={val.url}>{val.title}</a>
                                         <h6 style={{ margin: "auto 0", color: "#777", width: "100%", textAlign: "end", padding: "0 6px" }}>{val.category}</h6>
                                     </div>
                                     <p> {val.description}</p>
@@ -60,7 +56,7 @@ function List() {
                                         edit
                                     </span>
                                 </button>
-                                <button id='action'>
+                                <button onClick={()=>onDeleteLink(val.id)} id='action'>
                                     <span className="material-symbols-outlined">
                                         delete_forever
                                     </span>
@@ -73,7 +69,7 @@ function List() {
                             <section className='container-persiana'>
                                 <div name="id" id='p'>
                                     <div style={{ display: "flex" }}>
-                                        <a href={val.src}>{val.title}</a>
+                                        <a style={{ cursor: "pointer" }} href={val.url}>{val.title}</a>
                                         <h6 style={{ margin: "auto 0", color: "#777", width: "100%", textAlign: "end", padding: "0 6px" }}>{val.category}</h6>
                                     </div>
                                     <p> {val.description}</p>
@@ -86,7 +82,8 @@ function List() {
                                         edit
                                     </span>
                                 </button>
-                                <button id='action'>
+                                <button onClick={()=>onDeleteLink(val.id)} id='action'>
+
                                     <span className="material-symbols-outlined">
                                         delete_forever
                                     </span>

@@ -1,22 +1,27 @@
-import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, setDoc } from "@firebase/firestore"
-import { currentDatos } from "./datoSlice"
+import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, setDoc, onSnapshot } from "@firebase/firestore"
+import { currentDatos, deletedatos } from "./datoSlice"
 import { db } from "../firebase/firebase"
+
 
 export function getDatos() {
     return async (dispatch) => {
         try {
-            const querySnapshot = await getDocs(collection(db, 'sitios'))
-            const docs = [];
-            querySnapshot.forEach((doc) => {
-                docs.push({ ...doc.data(), id: doc.id })
+            const unsubscribe = onSnapshot(collection(db, 'sitios'), (querySnapshot) => {
+                const docs = [];
+                querySnapshot.forEach((doc) => {
+                    docs.push({ ...doc.data(), id: doc.id });
+                });
+                dispatch(currentDatos(docs));
             });
-            dispatch(currentDatos(docs))
+
+            // Si necesitas el unsubscribe para dejar de recibir actualizaciones
+            // puedes devolverlo desde la función para usarlo más tarde si es necesario
+            return unsubscribe;
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
-    }
+    };
 }
-// 
 // export function getImg(id) {
 //     // console.log(id)
 //     return async (dispatch) => {
@@ -62,14 +67,14 @@ export function addDato({ title, description, url, category }) {
         }
     }
 }
-// export function deleteImgs({ id }) {
+export function deletedato({ id }) {
 
-//     return async (dispatch) => {
-//         try {
-//             deleteDoc(doc(db,  'crudImg', id))
-//             dispatch(deleteImages(id))
-//         } catch (error) {
-//             console.log(error)
-//         }
-//     }
-// }      
+    return async (dispatch) => {
+        try {
+            deleteDoc(doc(db, 'sitios', id))
+            dispatch(deletedatos(id))
+        } catch (error) {
+            console.log(error)
+        }
+    }
+}      
