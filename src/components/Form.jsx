@@ -2,6 +2,14 @@ import React, { useState } from 'react'
 import './form.css'
 function Form() {
     const [state, setState] = useState(false)
+    const [title, setTitle] = useState("")
+    const [description, setDescription] = useState("")
+    const [url, setUrl] = useState("")
+    const [category, setCategory] = useState("")
+
+    const saltoDeLinea = () =>{
+            setDescription(description+" \n")
+    }
     return (<div>
         <button id='btn3' onClick={() => setState(true)}>Agregar</button>
 
@@ -13,8 +21,8 @@ function Form() {
                         <input type="text" />
                         <label htmlFor="">descripción</label>
                         <div style={{ display: "flex",justifyContent:"center" }}>
-                            <textarea type="text" style={{ width: "70%",height:"200px",border: "1px solid #aaaa", borderRadius: "10px", resize:"none" }} />
-                            <button style={{ margin: "0 4px", padding: "0", border: "1px solid #aaaa", borderRadius: "10px", backgroundColor: "transparent", color: "#777", height:"200px" }} >
+                            <textarea onChange={(e)=>setDescription(e.target.value)} value={description} type="text" style={{ width: "70%",height:"200px",border: "1px solid #aaaa", borderRadius: "10px", resize:"none" }} />
+                            <button onClick={saltoDeLinea} style={{ margin: "0 4px", padding: "0", border: "1px solid #aaaa", borderRadius: "10px", backgroundColor: "transparent", color: "#777", height:"200px" }} >
                                 <span className="material-symbols-outlined">
                                     subdirectory_arrow_right
                                 </span>
@@ -22,7 +30,7 @@ function Form() {
                         </div>
                         <label htmlFor="">Url</label>
                         <input type="text" />
-                        <label htmlFor="">categoria</label>
+                        <label htmlFor="">Categoria</label>
                         <select name="" id="">
                             <option value="">Framework</option>
                             <option value="">Componentes</option>
