@@ -33,7 +33,6 @@ function List() {
         })))
 
     }, [datos])
-
     const Persiana = ({ elements }) => {
         return (
             <div className='hidden'>
@@ -43,7 +42,7 @@ function List() {
                             <section className='container-persiana'>
                                 <div name="id" id='p'>
                                     <div style={{ display: "flex" }}>
-                                        <a style={{ cursor: "pointer" }} href={val.url}>{val.title}</a>
+                                        <h2>{val.title}</h2>
                                         <h6 style={{ margin: "auto 0", color: "#777", width: "100%", textAlign: "end", padding: "0 6px" }}>{val.category}</h6>
                                     </div>
                                     <p> {val.description}</p>
@@ -51,11 +50,12 @@ function List() {
 
                             </section>
                             <aside>
-                                <button id='action'>
+                            <a href={val.url} id='action'>
+
                                     <span className="material-symbols-outlined">
-                                        edit
+                                        link
                                     </span>
-                                </button>
+                                </a>
                                 <button onClick={()=>onDeleteLink(val.id)} id='action'>
                                     <span className="material-symbols-outlined">
                                         delete_forever
@@ -69,7 +69,7 @@ function List() {
                             <section className='container-persiana'>
                                 <div name="id" id='p'>
                                     <div style={{ display: "flex" }}>
-                                        <a style={{ cursor: "pointer" }} href={val.url}>{val.title}</a>
+                                        <h2>{val.title}</h2>
                                         <h6 style={{ margin: "auto 0", color: "#777", width: "100%", textAlign: "end", padding: "0 6px" }}>{val.category}</h6>
                                     </div>
                                     <p> {val.description}</p>
@@ -77,11 +77,11 @@ function List() {
 
                             </section>
                             <aside>
-                                <button id='action'>
+                                <a href={val.url} id='action'>
                                     <span className="material-symbols-outlined">
-                                        edit
+                                        link
                                     </span>
-                                </button>
+                                </a>
                                 <button onClick={()=>onDeleteLink(val.id)} id='action'>
 
                                     <span className="material-symbols-outlined">

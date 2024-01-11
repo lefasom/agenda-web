@@ -33,6 +33,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
+    border-radius: 100%;
 
 }
 
@@ -97,7 +99,7 @@
 
 }
 
-.container-persiana a {
+.container-persiana h2 {
     margin: auto 5px;
     text-decoration: none;
     color: #0e24f0;
