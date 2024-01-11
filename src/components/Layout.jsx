@@ -17,6 +17,8 @@ function Layout() {
     'Diseño',
     'Hosting',
     'Recursos',
+    'Backend',
+
   ]
 
   let itemsToShow = 3
