@@ -31,7 +31,6 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  padding: 5px;
   cursor: pointer;
   transition: background-color 100ms ease-in-out;
 }
