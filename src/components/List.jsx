@@ -56,11 +56,11 @@ function List() {
                                         link
                                     </span>
                                 </a>
-                                {/* <button onClick={()=>onDeleteLink(val.id)} id='action'>
+                                <button onClick={()=>onDeleteLink(val.id)} id='action'>
                                     <span className="material-symbols-outlined">
                                         delete_forever
                                     </span>
-                                </button> */}
+                                </button>
                             </aside>
                         </div>
                         )
