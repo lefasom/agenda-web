@@ -33,10 +33,11 @@ function List() {
         })))
 
     }, [datos])
+    // eslint-disable-next-line react/prop-types
     const Persiana = ({ elements }) => {
         return (
             <div className='hidden'>
-                {elements.map((val, index) => {
+                {elements?.map((val, index) => {
                     if (category.category.toLowerCase() == val.category.toLowerCase()) {
                         return (<div className='container' key={index}>
                             <section className='container-persiana'>
@@ -50,7 +51,7 @@ function List() {
 
                             </section>
                             <aside>
-                            <a href={val.url} id='action'>
+                            <a href={val.url} target="_blank"  rel="noreferrer" id='action'>
 
                                     <span className="material-symbols-outlined">
                                         link
@@ -77,7 +78,8 @@ function List() {
 
                             </section>
                             <aside>
-                                <a href={val.url} id='action'>
+                            <a href={val.url} target="_blank"  rel="noreferrer" id='action'>
+
                                     <span className="material-symbols-outlined">
                                         link
                                     </span>
