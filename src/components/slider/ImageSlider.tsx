@@ -72,7 +72,7 @@ export function ImageSlider({ elements }: CatSliderProps) {
               <p
                 className="img-slider-img "
                 key={index}
-                style={{ translate: `${-100 * elementIndex}%`, background: "#bbb", color: "#fff" }}
+                style={{ translate: `${-100 * elementIndex}%`, background: "rgb(202, 119, 208)", color: "#fff" }}
                 onClick={() => { filterCategory(val.cat) }}>{val.cat}</p>
             )
           } else {

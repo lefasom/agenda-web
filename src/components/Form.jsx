@@ -25,7 +25,9 @@ function Form() {
   }
 
     return (<div>
+        <div>
         <button id='btn3' onClick={() => setState(true)}>Agregar</button>
+        </div>
 
         <div className={state ? "modal" : "noMOdal"}>
             <div className='container-form'>

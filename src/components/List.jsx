@@ -44,24 +44,25 @@ function List() {
                                 <div name="id" id='p'>
                                     <div style={{ display: "flex" }}>
                                         <h2>{val.title}</h2>
-                                        <h6 style={{ margin: "auto 0", color: "#777", width: "100%", textAlign: "end", padding: "0 6px" }}>{val.category}</h6>
                                     </div>
                                     <p> {val.description}</p>
                                 </div>
 
                             </section>
                             <aside>
-                            <a href={val.url} target="_blank"  rel="noreferrer" id='action'>
+                            <h6 style={{ margin: "auto 0", color: "#777", width: "100%", textAlign: "center", padding: "0 6px" }}>{val.category}</h6>
+
+                                <a href={val.url} target="_blank" rel="noreferrer" id='action'>
 
                                     <span className="material-symbols-outlined">
                                         link
                                     </span>
                                 </a>
-                                {/* <button onClick={()=>onDeleteLink(val.id)} id='action'>
+                                <button id='action'>
                                     <span className="material-symbols-outlined">
-                                        delete_forever
+                                        edit
                                     </span>
-                                </button> */}
+                                </button>
                             </aside>
                         </div>
                         )
@@ -71,25 +72,25 @@ function List() {
                                 <div name="id" id='p'>
                                     <div style={{ display: "flex" }}>
                                         <h2>{val.title}</h2>
-                                        <h6 style={{ margin: "auto 0", color: "#777", width: "100%", textAlign: "end", padding: "0 6px" }}>{val.category}</h6>
                                     </div>
                                     <p> {val.description}</p>
                                 </div>
 
                             </section>
                             <aside>
-                            <a href={val.url} target="_blank"  rel="noreferrer" id='action'>
+                            <h6 style={{ margin: "auto 0", color: "#777", width: "100%", textAlign: "center", padding: "0 6px" }}>{val.category}</h6>
+
+                                <a href={val.url} target="_blank" rel="noreferrer" id='action'>
 
                                     <span className="material-symbols-outlined">
                                         link
                                     </span>
                                 </a>
-                                {/* <button onClick={()=>onDeleteLink(val.id)} id='action'>
-
+                                <button id='action'>
                                     <span className="material-symbols-outlined">
-                                        delete_forever
+                                        edit
                                     </span>
-                                </button> */}
+                                </button>
                             </aside>
                         </div>)
 
