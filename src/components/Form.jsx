@@ -10,23 +10,25 @@ function Form() {
     const [url, setUrl] = useState("")
     const [category, setCategory] = useState("Framework")
 
-    const saltoDeLinea = () =>{
-            setDescription(description+" \n")
+    const saltoDeLinea = () => {
+        setDescription(description + " \n")
     }
 
-    
-  const handleSubmit = () => {
-    dispatch(addDato({ title, description, url, category }))
-    setDescription('')
-    setCategory('Framework')
-    setUrl('')
-    setTitle('')
 
-  }
+    const handleSubmit = () => {
+        dispatch(addDato({ title, description, url, category }))
+        setDescription('')
+        setCategory('Framework')
+        setUrl('')
+        setTitle('')
+
+    }
 
     return (<div>
         <div>
-        <button id='btn3' onClick={() => setState(true)}>Agregar</button>
+            <button id='btn3' onClick={() => setState(true)}>
+                <span className="material-symbols-outlined">add</span>
+            </button>
         </div>
 
         <div className={state ? "modal" : "noMOdal"}>
@@ -34,20 +36,20 @@ function Form() {
                 <div className='container-form_input'>
                     <div className='form'>
                         <label htmlFor="">Titulo</label>
-                        <input value={title} onChange={(e)=>setTitle(e.target.value)} type="text" />
+                        <input value={title} onChange={(e) => setTitle(e.target.value)} type="text" />
                         <label htmlFor="">descripción</label>
-                        <div style={{ display: "flex",justifyContent:"center" }}>
-                            <textarea onChange={(e)=>setDescription(e.target.value)} value={description} type="text" style={{ width: "70%",height:"200px",border: "1px solid #aaaa", borderRadius: "10px", resize:"none" }} />
-                            <button onClick={saltoDeLinea} style={{ margin: "0 4px", padding: "0", border: "1px solid #aaaa", borderRadius: "10px", backgroundColor: "transparent", color: "#777", height:"200px" }} >
+                        <div style={{ display: "flex", justifyContent: "center" }}>
+                            <textarea onChange={(e) => setDescription(e.target.value)} value={description} type="text" style={{ width: "70%", height: "200px", border: "1px solid #aaaa", borderRadius: "10px", resize: "none" }} />
+                            <button onClick={saltoDeLinea} style={{ margin: "0 4px", padding: "0", border: "1px solid #aaaa", borderRadius: "10px", backgroundColor: "transparent", color: "#777", height: "200px" }} >
                                 <span className="material-symbols-outlined">
                                     subdirectory_arrow_right
                                 </span>
                             </button>
                         </div>
                         <label htmlFor="">Url</label>
-                        <input value={url} placeholder="https://elsitioweb.com/" onChange={(e)=>setUrl(e.target.value)}  type="text" />
+                        <input value={url} placeholder="https://elsitioweb.com/" onChange={(e) => setUrl(e.target.value)} type="text" />
                         <label htmlFor="">Categoria</label>
-                        <select onChange={(e)=>setCategory(e.target.value)} name="" id="">
+                        <select onChange={(e) => setCategory(e.target.value)} name="" id="">
                             <option value="Framework">Framework</option>
                             <option value="Componentes">Componentes</option>
                             <option value="Porfolios">Porfolios</option>
@@ -61,8 +63,8 @@ function Form() {
 
                         </select>
                         <div style={{ display: "flex" }}>
-                            <button onClick={()=>handleSubmit()} id='btn'>Guardar</button>
-                            <button id='btn2' onClick={() => setState(false)}>Cancelar</button>
+                            <button onClick={() => handleSubmit()} id='btn'>Guardar</button>
+                            <button id='btn2' onClick={() => setState(false)}>Salir</button>
                         </div>
                     </div>
 

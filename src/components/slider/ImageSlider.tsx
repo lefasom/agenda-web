@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect, useState } from "react"
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react"
 import "./image-slider.css"
@@ -12,7 +13,7 @@ type CatSliderProps = {
 export function ImageSlider({ elements }: CatSliderProps) {
 
   const dispatch = useDispatch()
-  let category = useSelector((state) => state.category)
+  let category = useSelector((state: { category: { category: string } }) => state.category)
 
   const [elementIndex, setElementIndex] = useState(0)
   function showNextElement() {
