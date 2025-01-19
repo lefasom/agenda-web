@@ -4,17 +4,16 @@ import { initializeApp }  from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 import { getFirestore } from 'firebase/firestore'
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage'
-
 import { v4 } from 'uuid'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBZW8KcpvHMcgUfgj_jnYg4sYlnieL9t9Y",
-  authDomain: "link-3db10.firebaseapp.com",
-  projectId: "link-3db10",
-  storageBucket: "link-3db10.appspot.com",
-  messagingSenderId: "517226952506",
-  appId: "1:517226952506:web:70f9deb587b36e443c4203"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
 };
 
 
