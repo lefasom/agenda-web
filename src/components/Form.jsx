@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './form.css'
 import { addDato } from '../../redux/datoAction'
 import { useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
 function Form() {
     const dispatch = useDispatch()
     const [state, setState] = useState(false)
@@ -25,13 +26,8 @@ function Form() {
     }
 
     return (<div>
-        <div>
-            <button id='btn3' onClick={() => setState(true)}>
-                <span className="material-symbols-outlined">add</span>
-            </button>
-        </div>
-
-        <div className={state ? "modal" : "noMOdal"}>
+   
+        <div className={"modal"}>
             <div className='container-form'>
                 <div className='container-form_input'>
                     <div className='form'>
@@ -64,7 +60,8 @@ function Form() {
                         </select>
                         <div style={{ display: "flex" }}>
                             <button onClick={() => handleSubmit()} id='btn'>Guardar</button>
-                            <button id='btn2' onClick={() => setState(false)}>Salir</button>
+       <Link to="/">Home</Link>
+                       
                         </div>
                     </div>
 
