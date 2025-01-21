@@ -8,12 +8,16 @@ import { Link } from 'react-router-dom'
 function App() {
 
   return (
-    <div>
-      <Link to="/form">Form</Link>
-      <Link to="/edit">Edit</Link>
+    <>
       <Layout />
       <List />
-    </div>
+      <Link id='Link' to="/form">
+        <span id='add' className="material-symbols-outlined">
+          add
+        </span>
+      </Link>
+
+    </>
   )
 }
 

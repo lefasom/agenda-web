@@ -57,7 +57,7 @@ export function ImageSlider({ elements }: CatSliderProps) {
       <div
 
         style={{
-          height: "100px",
+          height: "80px",
           width: "80%",
           display: "flex",
           borderRadius:"10px",
