@@ -26,7 +26,13 @@ function Form() {
     }
 
     return (<div>
-   
+        <Link id="Link" to="/">
+
+            <span id="add" style={{fontWeight:"200"} }className="material-symbols-outlined">
+                home
+            </span>
+        </Link>
+
         <div className={"modal"}>
             <div className='container-form'>
                 <div className='container-form_input'>
@@ -60,8 +66,7 @@ function Form() {
                         </select>
                         <div style={{ display: "flex" }}>
                             <button onClick={() => handleSubmit()} id='btn'>Guardar</button>
-       <Link to="/">Home</Link>
-                       
+
                         </div>
                     </div>
 

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import './list.css'
 import { deletedato, getDatos } from '../../redux/datoAction'
+import { Link } from 'react-router-dom'
 
 
 function List() {
@@ -50,18 +51,20 @@ function List() {
 
                             </section>
                             <aside>
-                            <h6 style={{ margin: "auto 0", color: "#777", width: "100%", textAlign: "center", padding: "0 6px" }}>{val.category}</h6>
+                                <h6 style={{ margin: "auto 0", color: "#777", width: "100%", textAlign: "center", padding: "0 6px" }}>{val.category}</h6>
 
                                 <a href={val.url} target="_blank" rel="noreferrer" id='action'>
-
                                     <span className="material-symbols-outlined">
                                         link
                                     </span>
                                 </a>
                                 <button id='action'>
-                                    <span className="material-symbols-outlined">
-                                        edit
-                                    </span>
+                                    <Link to={`/edit/${val.id}`}>
+                                        <span className="material-symbols-outlined">
+                                            edit
+                                        </span>
+                                    </Link>
+
                                 </button>
                             </aside>
                         </div>
@@ -78,7 +81,7 @@ function List() {
 
                             </section>
                             <aside>
-                            <h6 style={{ margin: "auto 0", color: "#777", width: "100%", textAlign: "center", padding: "0 6px" }}>{val.category}</h6>
+                                <h6 style={{ margin: "auto 0", color: "#777", width: "100%", textAlign: "center", padding: "0 6px" }}>{val.category}</h6>
 
                                 <a href={val.url} target="_blank" rel="noreferrer" id='action'>
 
@@ -87,9 +90,11 @@ function List() {
                                     </span>
                                 </a>
                                 <button id='action'>
-                                    <span className="material-symbols-outlined">
-                                        edit
-                                    </span>
+                                <Link to={`/edit/${val.id}`}>
+                                        <span className="material-symbols-outlined">
+                                            edit
+                                        </span>
+                                    </Link>
                                 </button>
                             </aside>
                         </div>)
