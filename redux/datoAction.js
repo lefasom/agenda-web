@@ -1,4 +1,4 @@
-import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, setDoc, onSnapshot } from "@firebase/firestore"
+import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, setDoc, onSnapshot, updateDoc } from "@firebase/firestore"
 import { currentDatos, deletedatos } from "./datoSlice"
 import { db } from "../firebase/firebase"
 
@@ -22,41 +22,18 @@ export function getDatos() {
         }
     };
 }
-// export function getImg(id) {
-//     // console.log(id)
-//     return async (dispatch) => {
-//         try {
-//             const data = await getDoc(doc(db, 'crudImg', id))
-//             let img = data.data()
-//             // console.log(img)
-//             dispatch(detailImg({ img, id }))
-
-//         } catch (error) {
-//             console.log(error)
-//         }
-//     }
-// }
-// export function addFavorite({ id, category, color, description, favorite, idUser, like, photo, subCategory, type, email }) {
-
-//     return async (dispatch) => {
-//         try {
-//             console.log('original:', favorite)
-
-//             if (!favorite?.includes(email)) {
-//                 favorite += `,${email}`
-//                 //   console.log('add:', favorite)
-//             } else {
-//                 favorite = favorite.replace(`,${email}`, '')
-//                 //   console.log('rest:', favorite)
-//             }
-
-//             const res = setDoc(doc(db, 'crudImg', id), { category, color, description, favorite, idUser, like, photo, subCategory, type })
-//             console.log(res)
-//         } catch (error) {
-//             console.log(error)
-//         }
-//     }
-// }
+export function updateDato({ id, title, description, url, category }) {
+    return async (dispatch) => {
+        try {
+            const docRef = doc(db, 'sitios', id);
+            await updateDoc(docRef, { title, description, url, category });
+            // Si es necesario, puedes despachar una acción para actualizar el estado en Redux
+            // Ejemplo: dispatch(updateDatos({ id, title, description, url, category }))
+        } catch (error) {
+            console.log(error);
+        }
+    };
+}
 export function addDato({ title, description, url, category }) {
 
     return async (dispatch) => {

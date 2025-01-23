@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import './edit.css'
-// import { updateDato } from '../../redux/datoAction';
+import { updateDato } from '../../redux/datoAction';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 function Edit() {
   const { id } = useParams(); // Obtener el id del dato a editar desde la URL
   const dispatch = useDispatch();
-
+  const navigate = useNavigate(); 
   // Obtener el dato a editar desde el store de Redux
   const datos = useSelector(state => state.dato.datos); // Obtener los datos del store de Redux
 console.log(datos)
@@ -42,11 +42,12 @@ console.log(datos)
   };
 
   const handleSubmit = () => {
-    // dispatch(updateDato({ id, title, description, url, category }));
+    dispatch(updateDato({ id, title, description, url, category }));
     setDescription('');
     setCategory('Framework');
     setUrl('');
     setTitle('');
+    navigate('/')
   };
 
   return (
