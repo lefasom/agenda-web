@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Edit from '../pages/Edit';
 import App from '../App';
-import Form from '../pages/form';
+import Form from '../pages/Form';
 
 function router() {
   return (
